@@ -4,11 +4,19 @@
 
 {% block body %}
 <style>
-    .container { margin: 0.5em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .container { margin: 0em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    ::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <div class="container">
     <h1>Password Generator</h1>
+
+    <blockquote>
+        Tired of creating accounts and paying to access services 
+        such as password managers? We've got just what you need.
+    </blockquote>
 
     {{ form_start(form) }}
         {{ form_row(form.Length) }}

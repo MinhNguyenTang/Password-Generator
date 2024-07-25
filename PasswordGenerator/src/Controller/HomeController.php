@@ -21,6 +21,7 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         $password = null;
+        $count = 0;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $length = $passwordLength->getLength();
