@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password Password{% endblock %}
+
+{% block body %}
+<style>
+    .container { margin: 0.5em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="container">
+    <h1>Password Generator</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.Length) }}
+        <button type="submit" class="btn btn-primary">Generate</button>
+    {{ form_end(form) }}
+
+    {% if password %}
+        <label for="">Your generated password</label>
+        <input type="text" id="generated-password" value="{{ password }}" readonly>
+        <small>The password contains {{ count }} characters.</small>
+
+        <button class="btn" onclick="copyPassword()">Copy</button>
+        <p id="copy-message" style="color: green; display: none;">Password copied to clipboard!</p>
+    {% endif %}
+</div>
+
+    <script>
+        function copyPassword() {
+            var copyText = document.getElementById("generated-password");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            navigator.clipboard.writeText(copyText.value).then(function() {
+                var message = document.getElementById("copy-message");
+                message.style.display = "block";
+                setTimeout(function() {
+                    message.style.display = "none";
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+{% endblock %}
