@@ -17,4 +17,7 @@ How to launch?
     symfony server:start
     symfony serve
     symfony serve -d
+
+####
+  These 3 command lines are equivalent to run the project.
   
