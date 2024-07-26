@@ -12,7 +12,7 @@ How to launch?
     cd PATH/To-the-project
 
 ####
-  Stil on the terminal, type:
+  Still on the terminal, type:
 #####
     symfony server:start
     symfony serve
