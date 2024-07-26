@@ -24,14 +24,13 @@
     {{ form_end(form) }}
 
     {% if password %}
-        <label for="">Your generated password</label>
-        <input type="text" id="generated-password" value="{{ password }}" readonly>
-        <small>The password contains {{ count }} characters.</small>
-
-        <button class="btn" onclick="copyPassword()">Copy</button>
-        <p id="copy-message" style="color: green; display: none;">Password copied to clipboard!</p>
+        <label for="">The password contains {{ count }} characters.</label>
+        <fieldset role="group">
+            <input type="text" id="generated-password" value="{{ password }}" readonly>
+            <button class="btn" onclick="copyPassword()">Copy</button>
+        </fieldset>
+        <small id="copy-message" style="color: green; display: none;">Password copied to clipboard!</small>
     {% endif %}
-</div>
 
     <script>
         function copyPassword() {

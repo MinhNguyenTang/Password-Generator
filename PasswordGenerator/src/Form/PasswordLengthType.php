@@ -6,6 +6,7 @@ use App\Entity\PasswordLength;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class PasswordLengthType extends AbstractType
@@ -16,9 +17,13 @@ class PasswordLengthType extends AbstractType
             ->add('Length', IntegerType::class, [
                 'label' => 'Password Length',
                 'attr' => [
-                    'type' => 'numeric',
+                    'type' => 'number',
+                    'min' => 12,
                 ],
                 'required' => true,
+                'constraints' => [
+                    new Assert\Positive()
+                ],
             ]);
     }
 

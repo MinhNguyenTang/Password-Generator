@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PasswordLengthRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PasswordLengthRepository::class)]
 class PasswordLength
@@ -14,6 +15,9 @@ class PasswordLength
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\Positive(
+        message: 'The field should be positive.'
+    )]
     private ?int $Length = null;
 
     public function getId(): ?int

@@ -12,7 +12,7 @@ use App\Form\PasswordLengthType;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'app_home', methods: ['POST'])]
     public function index(PasswordGeneratorService $passwordGenerator, Request $request): Response
     {
         $passwordLength = new PasswordLength();
@@ -20,6 +20,7 @@ class HomeController extends AbstractController
         $form = $this->createForm(PasswordLengthType::class, $passwordLength);
         $form->handleRequest($request);
 
+        $length = 0;
         $password = null;
         $count = 0;
 
@@ -28,6 +29,7 @@ class HomeController extends AbstractController
             $password = $passwordGenerator->generatePassword($length);
             $count = strlen($password);
         }
+        
         return $this->render('home/index.html.twig', [
             'form' => $form->createView(),
             'password' => $password,
