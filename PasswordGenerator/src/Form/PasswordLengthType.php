@@ -19,6 +19,7 @@ class PasswordLengthType extends AbstractType
                 'attr' => [
                     'type' => 'number',
                     'min' => 12,
+                    'max' => 1000000,
                 ],
                 'required' => true,
                 'constraints' => [
