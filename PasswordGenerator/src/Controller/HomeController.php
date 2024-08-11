@@ -12,7 +12,7 @@ use App\Form\PasswordLengthType;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home', methods: ['POST'])]
+    #[Route('/', name: 'app_home')]
     public function index(PasswordGeneratorService $passwordGenerator, Request $request): Response
     {
         $passwordLength = new PasswordLength();
