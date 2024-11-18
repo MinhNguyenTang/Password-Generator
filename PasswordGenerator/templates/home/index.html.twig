@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Password{% endblock %}
+{% block title %}Password Generator{% endblock %}
 
 {% block body %}
 <style>
-    .container { margin: 0em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    ::-webkit-scrollbar {
-        display: none;
-    }
+.container { 
+    margin: 0em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;
+}
+    
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 <div class="container">
@@ -36,7 +39,7 @@
         function copyPassword() {
             var copyText = document.getElementById("generated-password");
             copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
+            copyText.setSelectionRange(0, 99999);
 
             navigator.clipboard.writeText(copyText.value).then(function() {
                 var message = document.getElementById("copy-message");
