@@ -12,7 +12,7 @@ How to launch?
     cd PATH/To-the-project
 
 ####
-Before laucnhing the app, make sure you have installed ![Composer](https://getcomposer.org/download/). I consider that you already have set PHP and all other stuff. 
+    Before launching the app, make sure you have installed [Composer](https://getcomposer.org/download/). I consider that you already have set PHP and all other stuff. 
 ####
   Still on the terminal, type:
 #####
@@ -22,4 +22,9 @@ Before laucnhing the app, make sure you have installed ![Composer](https://getco
 
 ####
   These 3 command lines are equivalent to run the project.
-  
+
+####
+  Then, type:
+#####
+  npm install
+  npm run build
